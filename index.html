@@ -57,22 +57,25 @@
       <div class="stp step1">
         <div class="header">
           <h1 class="title">Personal info</h1>
-          <p>please provide your name, email address and phone number</p>
+          <p class="exp">please provide your name, email address and phone number</p>
         </div>
         
-        <form action="">
-            <div class="input">
-              <label for="Name">Name</label>
-              <input type="text" placeholder="e.g Stephen King">
+        <form>
+            <div class="label">
+              <label for="name">Name</label>
+              <p class="error">This field is required</p>
             </div>
-            <div class="input">
-              <label for="Name">Email Address</label>
-              <input type="text" placeholder="e.g e.g stepenking@gmail.com">
+            <input type="text" required id="name" placeholder="e.g Stephen King">
+            <div class="label">
+              <label for="email">Email Address</label>
+              <p class="error">This field is required</p>
             </div>
-            <div class="input">
-              <label for="Name">Phone Address</label>
-              <input type="text" placeholder="e.g +1 234 567 890">
+            <input type="text" required id="email" placeholder="e.g e.g stepenking@gmail.com">
+            <div class="label">
+              <label for="phone">Phone Address</label>
+              <p class="error">This field is required</p>
             </div>
+            <input type="tel" required id="phone" placeholder="e.g +1 234 567 890">
         </form>
         <div class="btns">
             <button class="next-stp" type="submit">Next Step</button>
@@ -86,35 +89,35 @@
       <div class="stp step2">
         <div class="header">
           <h1 class="title">Select your plan</h1>
-          <p>you have the option of monthly or yearly billing</p>
+          <p class="exp">you have the option of monthly or yearly billing</p>
         </div>
-        <form action="">
+        <form>
           
-            <div class="plan-card">
-              <div class="arcade-img">
-                <img src="./assets/images/icon-arcade.svg" alt="">
-              </div>
-              <div class="plan-info">
+            <div class="plan-card selected">
+              
+              <img src="./assets/images/icon-arcade.svg" alt="">
+              
+              <div class="plan-info chosen">
                 <b>Arcade</b>
-                <span class="plan-price">$9/mo</span>
+                <span class="plan-priced">$9/mo</span>
               </div>
             </div>
             <div class="plan-card">
-              <div class="advanced-img">
-                <img src="./assets/images/icon-advanced.svg" alt="">
-              </div>
+              
+              <img src="./assets/images/icon-advanced.svg" alt="">
+              
               <div class="plan-info">
                 <b>Advanced</b>
-                <span class="plan-price">$12/mo</span>
+                <span class="plan-priced">$12/mo</span>
               </div>
             </div>
             <div class="plan-card">
-              <div class="pro-img">
-                <img src="./assets/images/icon-pro.svg" alt="">
-              </div>
+              
+              <img src="./assets/images/icon-pro.svg" alt="">
+              
               <div class="plan-info">
                 <b>Pro</b>
-                <span class="plan-price">$15/mo</span>
+                <span class="plan-priced">$15/mo</span>
               </div>
             </div>
             
@@ -122,7 +125,7 @@
         </form>
         <div class="switcher">
           <p class="monthly sw-active">Monthly</p>
-          <label for="" class="switch">
+          <label class="switch">
             <input type="checkbox">
             <span class="slider round"></span>
           </label>
@@ -141,45 +144,39 @@
       <div class="stp step3">
         <div class="header">
           <h1 class="title">pick add-ons</h1>
-          <p>Add ons help enhance your gaming experience</p>
+          <p class="exp">Add ons help enhance your gaming experience</p>
         </div>
-        <form action="">
+        <form>
           
-            <div class="online-service box" data-id="1">
-              <div class="select">
-                <input type="checkbox" id="online">
-                <div class="description">
-                  <label>online service</label>
-                  <span>Access to multiplayer games</span>
-                </div>
+            <div class="box" data-id="1">
+              
+              <input type="checkbox" id="online">
+              <div class="description">
+                <label for="online">online service</label>
+                <small>Access to multiplayer games</small>
               </div>
-              <div class="price">
-                <span class="online-price">+$1/mo</span>
-              </div>
+              <p class="price">+1$/mo</p>
+              
             </div>
-            <div class="larger-storage box" data-id="2">
-              <div class="select">
-                <input type="checkbox" id="larger">
-                <div class="description">
-                  <label>Larger storage</label>
-                  <span> Extra 1TB of cloud save</span>
-                </div>
+            <div class="box" data-id="2">
+              
+              <input type="checkbox" id="larger">
+              <div class="description">
+                  <label for="larger">Larger storage</label>
+                  <small> Extra 1TB of cloud save</small>
               </div>
-              <div class="price">
-                <span class="online-price">+$2/mo</span>
-              </div>
+              <p class="price">+2$/mo</p>
+              
             </div>
-            <div class="customizable-profile box" data-id="3">
-              <div class="select">
-                <input type="checkbox" id="profile">
-                <div class="description">
-                  <label>Customizable profile</label>
-                  <span>Custom theme on your profile</span>
-                </div>
+            <div class="box" data-id="3">
+              
+              <input type="checkbox" id="profile">
+              <div class="description">
+                  <label for="profile">Customizable profile</label>
+                  <small>Custom theme on your profile</small>
               </div>
-              <div class="price">
-                <span class="online-price">+$2/mo</span>
-              </div>
+              <p class="price">+2$/mo</p>
+              
             </div>
           
         </form>
@@ -195,12 +192,12 @@
       <div class="stp step4">
         <div class="header">
           <h1 class="title">Finising up</h1>
-          <p>Double check everything looks Ok before confirming</p>
+          <p class="exp">Double check everything looks Ok before confirming</p>
         </div>
         <div class="selection-box">
           <div class="selection-container">
-            <div class="selected-plans">
-              <p class="plan-name">Arcade (Monthly)</p>
+            <div class="selected-plan">
+              <p class="plan-name">Arcade(Monthly)</p>
               <p class="plan-price">$9/mo</p>
             </div>
             <hr>
@@ -208,16 +205,12 @@
               <template>
                 <div class="selected-addon">
                   <span class="service-name">Online Service</span>
-                  <span class="plan-price">+$1/mo</span>
+                  <span class="service-price">+$1/mo</span>
                 </div>
               </template>
             </div>
           </div>
-          <div class="total">
-            <p class="total">Total</p>
-            <b>+12$/mo</b>
-          </div>
-          
+          <p class="total">Total (per month) <b>+$12/mo</b></p>
         </div>
         <div class="btns">
           <button class="prev-stp" type="button">Go Back</button>
@@ -229,15 +222,16 @@
         <!-- Step 5 start -->
 
         <div class="stp step5">
-          <div class="appreciation">
-            <img src="./assets/images/icon-thank-you.svg" alt="">
-            <div class="header">
-              <h2>Thank you!</h2>
-              <p>Thanks for confirming your subscription! We hope you have fun 
+          
+          <img src="./assets/images/icon-thank-you.svg" alt="">
+          <div class="header">
+            <h1 class="title">Thank you!</h1>
+            <p class="exp">Thanks for confirming your subscription! We hope you have fun 
               using our platform. If you ever need support, please feel free 
               to email us at support@loremgaming.com.</p>
-            </div>
           </div>
+          <button class="next-stp"></button>
+          
         </div>
         <!-- Step 5 end -->
     </div>

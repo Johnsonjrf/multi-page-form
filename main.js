@@ -1,8 +1,8 @@
 const steps = document.querySelectorAll(".stp")
 const circleSteps = document.querySelectorAll(".step")
-const formInputs = document.querySelectorAll(".step1 form .input input")
+const formInputs = document.querySelectorAll(".step1 form input")
 const plans = document.querySelectorAll(".plan-card")
-const switcher = document.querySelector(".switcher")
+const switcher = document.querySelector(".switch")
 const addons = document.querySelectorAll(".box")
 const total = document.querySelector(".total b")
 const planPrice = document.querySelector(".plan-price")
@@ -30,12 +30,13 @@ steps.forEach((step) => {
     nextBtn.addEventListener("click", () => {
         document.querySelector(`.step${currentStep}`).style.display = "none";
         if(currentStep < 5 && validateForm()) {
+            circleSteps[currentCircle].classList.remove("active")
             currentStep++;
             currentCircle++;
             setTotal()
 
         }
-        document.querySelector(`step${currentStep}`).style.display = "flex"
+        document.querySelector(`.step${currentStep}`).style.display = "flex"
         circleSteps[currentCircle].classList.add("active")
         summary(obj)
         
@@ -79,7 +80,7 @@ plans.forEach((plan) => {
         document.querySelector(".selected").classList.remove("selected");
         plan.classList.add("selected")
         const planName = plan.querySelector("b");
-        const planPrice = plan.querySelector(".plan-price");
+        const planPrice = plan.querySelector(".plan-priced");
         obj.plan = planName
         obj.price = planPrice
     })
@@ -89,10 +90,10 @@ switcher.addEventListener("click", () => {
     const val = switcher.querySelector("input").checked;
     if(val) {
         document.querySelector(".monthly").classList.remove("sw-active")
-        document.querySelector("yearly").classList.add("sw-active")
+        document.querySelector(".yearly").classList.add("sw-active")
     } else{
         document.querySelector(".monthly").classList.add("sw-active")
-        document.querySelector("yearly").classList.remove("sw-active")
+        document.querySelector(".yearly").classList.remove("sw-active")
     }
     switchPrice(val);
     obj.kind = val
@@ -101,7 +102,7 @@ switcher.addEventListener("click", () => {
 addons.forEach((addon) => {
     addon.addEventListener("click", (e) => {
         const addonSelect = addon.querySelector("input");
-        const to = addon.getAttribute("data-id");
+        const ID = addon.getAttribute("data-id");
         if(addonSelect.checked) {
             addonSelect.checked = false;
             addon.classList.remove("ad-selected");
@@ -109,7 +110,7 @@ addons.forEach((addon) => {
         } else {
             addonSelect.checked = true;
             addon.classList.add("ad-selected");
-            showAddon(ID, true);
+            showAddon(addon, true);
             e.preventDefault()
         }
     })
@@ -118,23 +119,23 @@ addons.forEach((addon) => {
 function switchPrice(checked) {
     const yearlyPrice = [90, 120, 150]
     const monthlyPrice = [9, 12, 15];
-    const prices = document.querySelectorAll("plan-price");
+    const prices = document.querySelectorAll(".plan-priced");
     if(checked) {
-        prices[0].innerHTML = `${yearlyPrice[0]/yr}`
-        prices[1].innerHTML = `${yearlyPrice[1]/yr}`
-        prices[2].innerHTML = `${yearlyPrice[2]/yr}`
+        prices[0].innerHTML = `$${yearlyPrice[0]}/yr`
+        prices[1].innerHTML = `$${yearlyPrice[1]}/yr`
+        prices[2].innerHTML = `$${yearlyPrice[2]}/yr`
         setTime(true);
     } else {
-        prices[0].innerHTML = `${monthlyPrice[0]/mo}`
-        prices[1].innerHTML = `${monthlyPrice[1]/mo}`
-        prices[2].innerHTML = `${monthlyPrice[2]/mo}`
+        prices[0].innerHTML = `$${monthlyPrice[0]}/mo`
+        prices[1].innerHTML = `$${monthlyPrice[1]}/mo`
+        prices[2].innerHTML = `$${monthlyPrice[2]}/mo`
         setTime(false);
     }
 }
 
 function showAddon (ad, val) {
-const  temp = document.getElementsByName("template")[0];
-const clone = temp.contentEditable.cloneNode(true);
+const  temp = document.getElementsByTagName("template")[0];
+const clone = temp.content.cloneNode(true);
 const serviceName = clone.querySelector(".service-name");
 const servicePrice = clone.querySelector(".service-price");
 const serviceID = clone.querySelector(".selected addon");
@@ -145,7 +146,7 @@ if (ad && val) {
     document.querySelectorAll(".addon").appendChild(clone);
 } else {
     const addon = document.querySelectorAll(".selected-addon");
-    addon.forEach((addon) => {
+    addons.forEach((addon) => {
         const attr = addon.getAttribute("data-id")
         if(attr == ad) {
             addon.remove()

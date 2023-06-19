@@ -16,6 +16,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "ubuntu", sans-serif;
 }
 
 .hidden{
@@ -51,8 +52,8 @@ body{
     background-image: url(./assets/images/bg-sidebar-desktop.svg);
     background-size: cover;
     background-repeat: no-repeat;
-    width: 30%;
-    height: 520px;
+    width: 400px;
+    height: 568px;
     padding: 3rem 2rem;
     display: flex;
     flex-direction: column;
@@ -69,7 +70,7 @@ body{
     align-items: center;
     justify-content: center;
     color: var(--White);
-    font-weight: 200;
+    font-weight: 700;
 }
 
 .active .circle{
@@ -111,6 +112,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 2rem;
 }
 
 .stp .header{
@@ -144,23 +146,26 @@ body{
 .step1{
     display: flex;
     padding: 1rem;
-    width: 70%;
+    width: 92%;
 }
 
-label{
-    display: block;
+.label{
+    color: var(--Marine-blue);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.input{
+/* .input{
     width: 100%;
-}
+} */
 
-input{
+/* input{
     width: 100%;
-}
+} */
 
 .step1 form{
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -180,13 +185,14 @@ input{
     outline-color: var(--Purplish-blue);
 }
 
-.step1 form input::placeholder{
+form input::placeholder{
     font-weight: 500;
     font-size: 1rem;
+    font-family: inherit;
 
 }
 
-.form .err{
+.form .error{
     display: none;
     color: var(--Strawberry-red);
     font-size: 1rem;
@@ -195,21 +201,21 @@ input{
 /*STEP 2*/
 .step2{
     display: none;
-    width: 70%;
-    padding-left: 1rem;
+    width: 92%;
+    /* padding-left: 1rem; */
 
     
 }
 
-.step2 .header{
+/* .step2 .header{
     margin-bottom: auto;
-}
+} */
 
 .step2 form{
     display: flex;
     flex: 1;
     align-items: center;
-    gap: 4rem;
+    gap: 2rem;
 }
 
 .plan-card{
@@ -263,7 +269,7 @@ input{
     padding: 1rem 2rem;
     border-radius: 7px;
     color: var(--Cool-gray);
-    
+    cursor: pointer;
 
 }
 
@@ -273,7 +279,7 @@ input{
     align-items: center;
     gap: .5rem;
     padding: .5rem;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
     justify-content: center;
 }
 
@@ -309,15 +315,16 @@ input{
     content: " ";
     height: 16px;
     width: 16px;
+    left: 4px;
     bottom: 4px;
     background-color: var(--White);
     -webkit-transition: .4s;
     transition: .4s;
 }
 
-input:checked * .slider::before{
+input:checked + .slider::before{
     -webkit-transform: translateX(26px);
-    transform: 0.4s;
+    transform: translateX(26px);
 }
 
 .slider.round{
@@ -330,12 +337,12 @@ input:checked * .slider::before{
 /*STEP 3*/
 .step3{
     display: none;
-    width: 70%;
-    padding-left: 13%;
+    width: 92%;
+    /* padding-left: 13%; */
 }
 
 .step3 form{
-    width: 80%;
+    /* width: 80%; */
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -350,28 +357,33 @@ input:checked * .slider::before{
     padding: 1rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     cursor: pointer;
 }
 
-.select{
+
+
+/* .select{
     display: flex;
 
-}
+} */
 
-.select input{
+/* .select input{
     width: 15px;
-}
+} */
 
 .description{
-    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    margin-left: 12px;
 }
 
-.select input{
+/* .select input{
     accent-color: var(--Purplish-blue);
     transform: scale(1.3);
     user-select: none;
-}
+} */
 
 .description label{
     color: var(--Marine-blue);
@@ -379,12 +391,13 @@ input:checked * .slider::before{
     user-select: none;
 }
 
-.description span{
+.description small{
     color: var(--Cool-gray);
-    font-weight: 200;
+    font-weight: 700;
 }
 
 .price{
+    margin-left: auto;
     color: var(--Purplish-blue);
 }
 
@@ -392,11 +405,16 @@ input:checked * .slider::before{
     border: 1px solid var(--Purplish-blue);
     background-color: var(--Magnolia);
 }
+
+.step3 form input{
+    accent-color: var(--Purplish-blue);
+    transform: scale(1.3);
+}
 /*STEP 4*/
 .step4{
     display: none;
-    width: 70%;
-    padding: 1.5rem;
+    width: 92%;
+    /* padding: 1.5rem; */
 }
 
 .selection-box{
@@ -426,12 +444,21 @@ input:checked * .slider::before{
 
 .selected-addon{
     display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    color: var(--Cool-gray);
+    font-weight: 500;
+    font-size: .9rem;
+}
+
+.selected-addon .service-price{
+    color: var(--Marine-blue);
 }
 
 .total{
     color: var(--Cool-gray);
     padding: 1.5rem;
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -439,18 +466,20 @@ input:checked * .slider::before{
 
 .total b{
     color: var(--Purplish-blue);
+    font-size: 1.2rem;
 }
 /*STEP 5*/
 .step5{
     display: none;
     align-items: center;
     justify-content: center;
-    width: 70%;
+    width: 92%;
     text-align: center;
+    margin: auto;
 }
 
-.appreciation{
-    width: 70%;
+.step5 button{
+    display: none;
 }
 
 /*SWITCH classes*/
@@ -475,6 +504,7 @@ input:checked * .slider::before{
         left: 0;
         right: 0;
         background-image: url("./assets/images/bg-sidebar-mobile.svg");
+        background-size: cover;
         flex-direction: row;
         align-items: flex-start;
         justify-content: center;
